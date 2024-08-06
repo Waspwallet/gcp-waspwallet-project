@@ -19,6 +19,20 @@ resource "google_container_cluster" "primary" {
   workload_identity_config {
     identity_namespace = "${var.project_id}.svc.id.goog"
   }
+
+  enable_legacy_abac = false
+  enable_private_nodes = true
+  enable_master_authorized_networks = true
+  enable_ip_alias = true
+  enable_default_service_account = false
+  enable_resource_labels = true
+  enable_network_policy = true
+}
+
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  version = "~> 3.0"
 }
 
 output "kubeconfig" {
