@@ -1,1 +1,3 @@
-# Move the project_id attribute to the appropriate block or section
+project_id = "wasp-wallet"
+region     = "us-central1"
+zone       = "us-central1-a"
